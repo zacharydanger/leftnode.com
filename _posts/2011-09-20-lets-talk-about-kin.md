@@ -60,9 +60,7 @@ Next, create your first controller. From within the `/var/www/kin/` directory, c
     cd /var/www/kin
     mkdir application/{controllers,views} -p
 
-Kin likes it when you the conventions it defines. 
-
-
+Kin likes it when you use the conventions it defines. 
 
 ### What is RESTful
 The acronym REST and RESTful has been used a lot recently. Unfortunately, it's mostly been used incorrectly. One of the causes of that is the acronym definition itself: Representational State Transfer. Representational State Transfer is vague, it is hard to pin down its exact meaning, so programmers have built what they consider to be a RESTful web-service and thats what is has become. The idea REST is complex, and it would be difficult to build a system that adheres to the true definition of REST completely. Thus, I've taken REST over HTTP to mean building a web-service that respects HTTP request and response headers (Accept, Accept-Encoding, Accept-Language, Content-Type, etc) and HTTP response codes (200, 201, 404, 409, 500, etc). Calls to the service are done over HTTP through several different methods: GET, POST, PUT, DELETE (and others such as OPTIONS, HEAD, and TRACE, but I will not discuss those). A RESTful web-service should also do its best to respect HTTP's stateless definition.

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Define your own \"change the world\""
+title: "Define your own change the world"
 permalink: /entry/define-your-own-change-the-world-.html
 comments: false
 author: Vic Cherubini

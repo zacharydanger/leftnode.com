@@ -6,7 +6,7 @@ comments: false
 author: Vic Cherubini
 ---
 
-Now that Kwolla 2.0 is using [jQuery Templates](/entry/kwolla-2.0-javascript-templates), I wanted to show how the code worked that actually populates those templates. Before discussing the JavaScript behind jQuery Templates, you need to understand the standard Kwolla response object. This is an object returns by **every** API response.
+Now that Kwolla 2.0 is using [jQuery Templates](/entry/kwolla-2-0-javascript-templates-with-jquery.html), I wanted to show how the code worked that actually populates those templates. Before discussing the JavaScript behind jQuery Templates, you need to understand the standard Kwolla response object. This is an object returns by **every** API response.
 
 Because Kwolla 2.0 is based on an actual RESTful API, each response from the API is a standard JSON object with the following members:
 
@@ -25,9 +25,7 @@ Because Kwolla 2.0 is based on an actual RESTful API, each response from the API
 +  **`name`** &mdash; The name of the model in the `model` field.
 +  **`content`** &mdash; Any miscellaneous content that needs to be returned with the request.
 +  **`messages`** &mdash; An array of messages to display to the user. An example array looks like: `[{"type":"error","message":"An error ocurred when creating a user."}]`
-    
 +  **`errors`** &mdash; A key/value object of fields that failed during the request. An example object looks like: `{"email_address":"The Email Address provided is not a valid email address."}`
-
 +  **`redirect`** &mdash; A URL the client should redirect to after a successful request. For example, after making a successful POST request to `/api/signin` this field might contain a URL like `http://kwolla.com/account`.
 
 There are cases where the `model` field will return an array of objects. This will primarily happen with the Activity Feed where many objects need to be returned; each object is an entity that makes up the Activity Feed. When an array of objects is returned, several views will use jQuery Templates to render those objects.

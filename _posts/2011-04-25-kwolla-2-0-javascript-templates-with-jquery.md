@@ -6,7 +6,7 @@ comments: false
 author: Vic Cherubini
 ---
 
-One of the key features and central focus points of <a href="http://kwolla.com/product/kwolla-presale">Kwolla 2.0</a> is the Activity Stream. As your friends post content to your Kwolla 2.0 Social Network, the Activity Stream will be updated. It is also updated as you post content for your friends to see. Because this is a real time stream, users expect data to be updated asynchronously which gets difficult with the way things are currently done.
+One of the key features and central focus points of Kwolla 2.0 is the Activity Stream. As your friends post content to your Kwolla 2.0 Social Network, the Activity Stream will be updated. It is also updated as you post content for your friends to see. Because this is a real time stream, users expect data to be updated asynchronously which gets difficult with the way things are currently done.
 
 ### Main Request Loop
 Most web software follows a basic Request Loop that has been around for years: user makes request, PHP software interprets that, grabs a template, renders it, and returns the content back to the client/browser. This is a pretty straightforward way of handling requests and works for a lot of the time. Rendering this blog post works exactly like that. While this method is straightforward, it can result in a lot of HTML being thrown back to client which slows down the network connection and page rendering times. Think of a large thread on Reddit or a forum you read - sometimes there is several hundred kilobytes of raw text being returned to the client. It can take several seconds to load, parse, and display.
@@ -23,7 +23,7 @@ We're all familiar with the horrible JavaScript we've written that appends conte
 
     var html = '<div id="username">'+json.username+'</div><strong>'+json.description+'</strong>';
 
-That starts to get really ugly really fast. Fortunately, there is a nice elegant solution with the <a href="http://api.jquery.com/tmpl">jQuery Template library</a>. Originally written by jQuery's original author John Resig, the library has been expanded on by Microsoft.
+That starts to get really ugly really fast. Fortunately, there is a nice elegant solution with the [jQuery Template library](http://api.jquery.com/tmpl). Originally written by jQuery's original author John Resig, the library has been expanded on by Microsoft.
 
 Using the library is both elegant and intuitive. It handles a lot of the heavy lifting like looping for you, and from initial tests, it is very fast. Defining a template is simple: it is HTML within a `<script>` tag with a special `type` parameter.
 
@@ -83,4 +83,4 @@ The Activity Stream with Kwolla 2.0 is now rendered much faster and easier with 
     </div>
 
 
-Notice in the first template, *Activity Template*, jQuery Template can include other templates and pass data into them. This allows nice template granularity. I'm very excited about this new addition to Kwolla 2.0. This will make templates easier to manage, and make for a very nice presentation in the browser on top of the [Kwolla 2.0](/entry/kwolla-2.0-api-architecture) [API](/entry/kwolla-2.0-entity-api).
+Notice in the first template, *Activity Template*, jQuery Template can include other templates and pass data into them. This allows nice template granularity. I'm very excited about this new addition to Kwolla 2.0. This will make templates easier to manage, and make for a very nice presentation in the browser on top of the [Kwolla 2.0](/entry/the-kwolla-2-0-api-architecture.html) [API](/entry/kwolla-2-0-entity-api-finished.html).

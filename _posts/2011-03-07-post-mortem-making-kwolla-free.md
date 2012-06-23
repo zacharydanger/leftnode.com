@@ -15,7 +15,7 @@ After about a year of noticing the site wasn't picking up, I wanted to do someth
 
 I added a new theme, ripped out several of the modules that were specific to ProspectVista, added some new features, and packaged it as a "build your own social network" piece of software. If you grep around the software and see methods named `vista_*()` or `PV::`, they are vestiges from when the software was named for ProspectVista.
 
-My [first month of sales](/entry/first-month-kwolla-sales-report) were strong and promising. Having customers pay me was awesome! **If you don't get a rush or high out of each new paying customer, you're not cut out to be an entreprenuer.**
+My [first month of sales](/entry/leftnode-sales-report-1-february-2011.html) were strong and promising. Having customers pay me was awesome! **If you don't get a rush or high out of each new paying customer, you're not cut out to be an entreprenuer.**
 
 ### Sales Dropped Off
 After the first month of great sales, they started to drop off quickly. I put money into advertising on BuySellAds.com and other script archives. Nothing seemed to help. A sale would trickle in every few days, and it was definitely a defeating feeling.
@@ -31,7 +31,7 @@ I announced I was making it free on [Reddit's /r/PHP community](http://www.reddi
 Since making it free, Kwolla has been **ordered 225 times** and **downloaded 404 times**. There were **1738 unique** hits and **3670 pageviews**.
 
 ### Launching Version 1.1.1
-Shortly after making Kwolla free to download, I finished Version 1.1.1. Through the ecommerce software behind <a href="http://kwolla.com">kwolla.com</a> (also available to download soon), I was able to contact all of the downloaders to let them know of the upgrade.
+Shortly after making Kwolla free to download, I finished Version 1.1.1. Through the ecommerce software behind [kwolla.com](http://kwolla.com) (also available to download soon), I was able to contact all of the downloaders to let them know of the upgrade.
 
 ### Future Development
 Aside from some bug fixes and possibly adding a new feature or two, this will be the end of the Version 1.0 series. I'm currently working on Kwolla 2.0 which will include all the things Kwolla 1.0 did not. Some Kwolla 2.0 features include:

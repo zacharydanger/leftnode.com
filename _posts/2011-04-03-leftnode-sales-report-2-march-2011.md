@@ -6,7 +6,7 @@ comments: false
 author: Vic Cherubini
 ---
 
-A little over a month ago I published the results of my [first month of Kwolla sales](/entry/first-month-kwolla-sales-report). I decided to wait a bit longer to do this months sales report so rather than doing it on the 17th of each month, I will do it around the 1st. It makes it easier for everyone.
+A little over a month ago I published the results of my [first month of Kwolla sales](/entry/leftnode-sales-report-1-february-2011.html). I decided to wait a bit longer to do this months sales report so rather than doing it on the 17th of each month, I will do it around the 1st. It makes it easier for everyone.
 
 As you might be aware, on March 4th I made Kwolla 1.x free to download and use on your server. I still have not made it open source, but I have plans on doing that this week. This report will include both how much money Leftnode Software has made since March 1st, and how many Kwolla downloads have been made.
 

@@ -34,7 +34,7 @@ Internally, the call looks slightly different, but the format is returned as JSO
         // Find the user, the /api/user/by_username/$username
         // returns a user model if found, or an error if not found.
 
-        $response = kwollakwolla::api('/api/user/by_username/'.$username);
+        $response = kwolla\kwolla::api('/api/user/by_username/'.$username);
         if ($response->has_errors()) {
           $this->messages = $response->messages;
           $this->render('profile/not-found');
@@ -45,9 +45,9 @@ Internally, the call looks slightly different, but the format is returned as JSO
       }
     }
 
-This basic example shows that an internal call to `kwollakwolla::api()` performs the actual call. It returns a `kwollaresponse` object that has the following structure:
+This basic example shows that an internal call to `kwolla\kwolla::api()` performs the actual call. It returns a `kwolla\response` object that has the following structure:
 
-    $response = new kwollaresponse(array(
+    $response = new kwolla\response(array(
       'model' => array(),
       'object' => NULL,
       'name' => '',
@@ -73,6 +73,6 @@ A full response for the call to `/api/user/by_username/leftnode` would look like
 After the response is returned from the API call, it is up to the client (the front end controller) to convert it back to a PHP object and then display it to the user properly. This allows any application that can call the API to build a module on top of Kwolla easily.
 
 ### Authentication
-Internal API calls do not require authentication (and are actually not routed through HTTP at all). Internal API calls are made through the `kwollakwolla::api()` method. External API calls are authenticated through an API key. Keys are stored in the database and can be throttled. API Keys can also be managed through the new Kwolla 2.0 administration interface. The initial version of Kwolla will not have API key segmentation: if a person has a valid key, they can perform all of the API actions (including destructive ones) so be careful who you assign keys to.
+Internal API calls do not require authentication (and are actually not routed through HTTP at all). Internal API calls are made through the `kwolla\kwolla::api()` method. External API calls are authenticated through an API key. Keys are stored in the database and can be throttled. API Keys can also be managed through the new Kwolla 2.0 administration interface. The initial version of Kwolla will not have API key segmentation: if a person has a valid key, they can perform all of the API actions (including destructive ones) so be careful who you assign keys to.
 
 When Kwolla 2.0 is released, full API documentation will be released too. We're hoping that by making it so simple to add your own mashups that you'll take Kwolla and extend it beyond our imaginations.

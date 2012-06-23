@@ -6,7 +6,7 @@ comments: false
 author: Vic Cherubini
 ---
 
-I received a lot of great responses from my post on ditching your [ORM and using straight PDO](http://leftnode.com/entry/the-last-php-pdo-library-you-will-ever-need). The product [we are](http://brightmarch.com) building lets you review all of your Google AdWords and Bing AdCenter ads in one central location. This project was given to us by a group of marketers who do this manually each month, and they wanted it done automatically. Since both platforms have extensive API's, it made perfect sense that a computer do this and not a human. We have since dubbed this project "Metrics".
+I received a lot of great responses from my post on ditching your [ORM and using straight PDO](/entry/the-last-php-pdo-library-you-will-ever-need.html). The product [we are](http://brightmarch.com) building lets you review all of your Google AdWords and Bing AdCenter ads in one central location. This project was given to us by a group of marketers who do this manually each month, and they wanted it done automatically. Since both platforms have extensive API's, it made perfect sense that a computer do this and not a human. We have since dubbed this project "Metrics".
 
 This blog post is about building your application in two distinct layers: a HTTP RESTful API and a web frontend. This technique is not new and I am not the first developer to build a web application with this model. However, this is the first time I have built an application this way, and I want to share my experience.
 

@@ -6,7 +6,7 @@ comments: false
 author: Vic Cherubini
 ---
 
-**Note:** This is the second part in a two part series I'm writing about my experiences with selling software online. You should start by reading [Lessons I Have Learned From Selling Software Online](/entry/lessons-i-have-learned-from-selling-software-online) if you have not.
+**Note:** This is the second part in a two part series I'm writing about my experiences with selling software online. You should start by reading [Lessons I Have Learned From Selling Software Online](/entry/lessons-i-have-learned-from-selling-software-online.html) if you have not.
 
 Your software is finished and ready to be sold. Now what? As I mentioned in my previous article, I am basing my information in this one on only a few months of experience. It is in those few months that I transitioned from a programmer to a marketer, and here is what I did.
 

@@ -6,7 +6,7 @@ comments: false
 author: Vic Cherubini
 ---
 
-Despite my best efforts, I have not had a chance to learn Scala like [I wanted to](http://leftnode.com/entry/im-retiring-from-php) earlier in the year. I was commissioned to build a large scale web application right after I made the decision to learn a new language and curtail the amount of PHP I was programming. Doing the application in a language other than PHP would have been silly. It was client work, and I could not expect to use it as a way to learn a new language and framework (Scala and Lift). I already had a great PHP toolset I could use (and a new one I ended up writing), so my work with PHP continued.
+Despite my best efforts, I have not had a chance to learn Scala like [I wanted to](/entry/i-m-retiring-from-php.html) earlier in the year. I was commissioned to build a large scale web application right after I made the decision to learn a new language and curtail the amount of PHP I was programming. Doing the application in a language other than PHP would have been silly. It was client work, and I could not expect to use it as a way to learn a new language and framework (Scala and Lift). I already had a great PHP toolset I could use (and a new one I ended up writing), so my work with PHP continued.
 
 This new application is the first large scale application I have built for side work in a while, so it gave me the opportunity to try some new ideas I have had with PHP. I am proud of the architecture I built, and look forward to discussing the design decisions I made in future articles. This article discusses my decision to move from using a SQL library to writing straight SQL in my controllers.
 
@@ -62,8 +62,6 @@ Because PDO can be verbose at times, I wrote the smallest wrapper I could to fac
         $modify_stmt = $this->prepare_and_execute($query, $parameters);
         return($modify_stmt->rowCount());
       }
-
-
 
       private function prepare_and_execute($query, $parameters=array()) {
         $prep_stmt = $this->prepare($query);

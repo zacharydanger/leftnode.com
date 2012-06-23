@@ -22,57 +22,56 @@ It's our hope that with this new architecture developing modules and addons for 
 
 Calling the RESTful API through an HTTP POST request is straighforward. If your Kwolla installation is located at kwolla.net, a sample request to create a new user could easily be called through cURL.
 
-
-<pre><strong>curl</strong> -X POST -F "user[username]=kwolla_user" 
-  -F "user[password]=sample_password" 
-  [-F ....] 
-  -F "api_key=secure_api_key" 
-  http://kwolla.net/user/create</pre>
+    curl -X POST -F "user[username]=kwolla_user" \
+      -F "user[password]=sample_password" \
+      [-F ....] \
+      -F "api_key=secure_api_key" \
+      http://kwolla.net/user/create
 
 Doing the same with PHP and the curl library is equally as simple.
 
-<pre>&lt;?php
+    <?php
 
-$parameters = array(
-  'api_key' => 'secure_api_key',
-  'user[username]' => 'kwolla_user',
-  <em>/*...*/</em>
-);
+    $parameters = array(
+      'api_key' => 'secure_api_key',
+      'user[username]' => 'kwolla_user',
+      /*...*/
+    );
 
-$curl = curl_init();
-curl_setopt_array($curl, array(
-  CURLOPT_URL => 'http://kwolla.net/user/create',
-  CURLOPT_POST => true,
-  CURLOPT_HEADER => false,
-  CURLOPT_USERAGENT => 'Kwolla Social Network 1.2.0',
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_POSTFIELDS => $parameters
-));
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => 'http://kwolla.net/user/create',
+      CURLOPT_POST => true,
+      CURLOPT_HEADER => false,
+      CURLOPT_USERAGENT => 'Kwolla Social Network 1.2.0',
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_POSTFIELDS => $parameters
+    ));
 
-$response = curl_exec($curl);</pre>
+    $response = curl_exec($curl);
 
 ### Format of JSON Response
 
 All API requests return a commonly formatted JSON object.
 
-<pre>{
-  "model": {
-    "id": "1",
-    "username": "kwolla_user",
-    "password": "$P$ADE/4ffRdke"
-  },
-  "name": "user",
-  "content": "miscellaneous content or data",
-  "messages": [{
-    "type": "error",
-    "message": "Some very important error has occurred!"
-  }],
-  "errors": [
-    {"field1": "Error 1"},
-    {"field2": "Error 2"}
-  ],
-  "redirect": "http://kwolla.net/account/control-panel"
-}</pre>
+    {
+      "model": {
+        "id": "1",
+        "username": "kwolla_user",
+        "password": "$P$ADE/4ffRdke"
+      },
+      "name": "user",
+      "content": "miscellaneous content or data",
+      "messages": [{
+        "type": "error",
+        "message": "Some very important error has occurred!"
+      }],
+      "errors": [
+        {"field1": "Error 1"},
+        {"field2": "Error 2"}
+      ],
+      "redirect": "http://kwolla.net/account/control-panel"
+    }
 
 The `model` key contains the Model that was manipulated, created, or deleted in the API call. It contains all of the keys in the Model. It can be NULL. To accompany this, the **name** field is the name of the Model object within Kwolla so it can be reconstructed easily.
 

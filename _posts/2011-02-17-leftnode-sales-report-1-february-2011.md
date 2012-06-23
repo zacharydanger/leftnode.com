@@ -33,6 +33,6 @@ When Kwolla first launched, I had it priced at $149. Everyone said it was too ex
 
 After sales slowed, I dropped the price dramatically to $29.99 (but took away the auto discount code) as I'm interested as getting as many developers on board with the Initial Adopters program. The Initial Adopters program is for all customers who purchase Kwolla during it's launch phase. Initial Adopters get a free installation and free lifetime updates of the software and all modules released by Leftnode Software. I think $29.99 is a very good price given the feature set and it allows you to automatically join the Initial Adopters program.
 
-Kwolla 1.2.0 is currently under development. It includes many new features like a [full RESTful API](/entry/kwolla-1.2.0-architecture) and [GUI Installation](/entry/kwolla-1.2.0-gui-installation-process). Of course, as a result of the Initial Adopters program, all purchasers of Kwolla 1.1.0 get a free upgrade to 1.2.0.
+Kwolla 1.2.0 is currently under development. It includes many new features like a [full RESTful API](/entry/kwolla-1-2-0-architecture.html) and [GUI Installation](/entry/kwolla-1-2-0-gui-installation-process.html). Of course, as a result of the Initial Adopters program, all purchasers of Kwolla 1.1.0 get a free upgrade to 1.2.0.
 
 Thank you again for all of the support and look forward for the 1.2.0 release!

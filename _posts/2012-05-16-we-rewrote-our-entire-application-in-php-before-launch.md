@@ -8,7 +8,7 @@ author: Vic Cherubini
 
 After almost five months of development, we finally launched [Accthub](https://accthub.com)! Accthub was born out of building the same tool many times for a lot of our clients and wanting to simplify (and centralize) that process.
 
-If you have read my blog before, you might have remembered that [I retired from PHP](http://leftnode.com/entry/im-retiring-from-php). That did not exactly work out like I had planned. My side business does most of our code in PHP, and my job uses PHP almost exclusively. I obviously choose for all of [Bright March's](http://brightmarch.com) code to be done in PHP; I have little say in what is done at my job.
+If you have read my blog before, you might have remembered that [I retired from PHP](/entry/i-m-retiring-from-php.html). That did not exactly work out like I had planned. My side business does most of our code in PHP, and my job uses PHP almost exclusively. I obviously choose for all of [Bright March's](http://brightmarch.com) code to be done in PHP; I have little say in what is done at my job.
 
 On top of that, **I made the decision to rewrite Accthub from Java to PHP which delayed the launch by several months.**
 
@@ -26,7 +26,7 @@ I made the decision then to rebuild the entire product in PHP and delay launch b
 
 I have worked with PHP since 1999, so I know it inside and out. I know most of its silly quirks. I know how to scale it. I know PHP best practices. I know PHPUnit very well. I can keep my servers updated with the latest version of PHP because compiling it is simple. I can use CI-Joe for building my PHP apps and Capistrano for deployments (to be fair, both of these tools could be used with a Java application as well).
 
-It was about that time that I started to work with the Symfony2 and Doctrine2 frameworks. Generally I had been adverse to using large frameworks and had written my own, but with my goal this year of [learning to love my non-perfect code](http://leftnode.com/entry/content-with-code), I decided to give it a try for a separate project.
+It was about that time that I started to work with the Symfony2 and Doctrine2 frameworks. Generally I had been adverse to using large frameworks and had written my own, but with my goal this year of [learning to love my non-perfect code](/entry/content-with-code-learning-to-love-my-non-perfect-code.html), I decided to give it a try for a separate project.
 
 I really enjoyed using it. It removed a lot of quirks from PHP, and made working with HTTP and the command line a breeze. The development teams behind Symfony2 and Doctrine2 clearly put a lot of time and effort into planning how these frameworks were going to work and it shows.
 

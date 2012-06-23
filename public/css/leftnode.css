@@ -1,0 +1,314 @@
+body {
+    background: #fff;
+    font-family: helvetica, arial, sans-serif;
+}
+
+img {
+    border: 0;
+}
+
+a {
+    color: #b7343a;
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: helvetica, arial, sans-serif;
+}
+
+h2 {
+    font-size: 28px;
+    letter-spacing: -1px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h2 a {
+    color: #AA1319;
+    text-decoration: none;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+ul { }
+
+ul li {
+    margin-left: 30px;
+    list-style-type: square;
+}
+
+article {
+    padding-top: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+header {
+    background: url('images/trendline-logo-background.png') repeat-x;
+    height: 75px;
+    border-bottom: 2px solid #000;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header h1 {
+    float: left;
+    height: 75px;
+    width: 481px;
+    margin: 0;
+}
+
+header h1 a {
+    display: block;
+    height: 75px;
+    background: url('images/trendline-logo.png') no-repeat;
+    text-indent: -9999em;
+}
+
+@media all and (max-width: 640px) and (min-width: 240px) {
+    header {
+        background: url('images/trendline-logo-background-mobile.png') repeat-x;
+        height: 48px;
+        border-bottom: 1px solid #000;
+    }
+    
+    header h1 {
+        height: 48px;
+        width: 308px;
+        margin: auto;
+        float: none;
+    }
+    
+    header h1 a {
+        height: 48px;
+        background: url('images/trendline-logo-mobile.png') no-repeat;
+    }
+    
+    .social-banner {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+.social-banner {
+    position: fixed;
+    width: 100%;
+    padding: 10px 0 10px 0;
+    background: rgba(175, 47, 47, 0.500);
+    left: 0;
+    z-index: 2;
+    top: 0;
+}
+
+.social-banner .container {
+    background: #fff;
+    padding: 5px 0 0 0;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.social-banner h2 {
+    color: #000;
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.social-banner h3 {
+    color: #AA1319;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.social-banner input {
+    border: 0;
+    font-size: 11px;
+    width: 100%;
+}
+
+.rss {
+    background: url('images/rss.png') no-repeat center left;
+    padding-left: 40px;
+    color: #000;
+}
+
+.stage {
+    margin-top: 50px;
+}
+
+.entry {
+    margin-bottom: 20px;
+}
+
+.entry.primary {
+    margin-bottom: 40px;
+}
+
+.entry h2 {
+    font-size: 24px;
+}
+
+.entry .date-author {
+    font-size: 12px;
+}
+
+.entry .date-author .date { }
+
+.entry .date-author .author { }
+
+.entry .content {
+    margin-top: 10px;
+    font-family: 'Georgia', helvetica, arial, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+.entry .content p {
+    margin: 10px 0 10px 0;
+}
+
+.entry .content blockquote {
+    background: #d2d2d2;
+    padding: 10px;
+    font-style: italic;
+    margin: 10px 0 10px 0;
+}
+
+.entry .content pre {
+    background: none repeat scroll 0 0 #262626;
+    border: 1px solid #fff;
+    color: #FFFFFF;
+    padding: 10px;
+    font-size: 12px;
+    margin: 10px 0 10px 0;
+}
+
+.entry .content pre em {
+    color: #8A8A8A;
+}
+
+.entry .content ul.categories {
+
+}
+
+.entry .content ul.categories li {
+    float: left;
+    padding-right: 10px;
+    margin: 0;
+    list-style-type: none;
+}
+
+.entry .content ul.categories li.description {
+    font-style: italic;
+}
+
+.entry .responses {
+    margin-top: 40px;
+}
+
+.entry .responses p {
+    font-size: 12px;
+}
+
+.box {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.box a {
+    text-decoration: none;
+}
+
+.email-privacy-text {
+    font-size: 11px;
+    margin: 10px;
+    color: #797979;
+}
+
+.email-form input.email-address {
+    font-size: 18px;
+    font-family: helvetica, arial, sans-serif;
+}
+
+.email-form input.register {
+    font-size: 12px;
+}
+
+.email-form div.register-button {
+    margin-top: 5px;
+    text-align: center;
+}
+
+.categories {
+    margin-bottom: 20px;
+}
+
+.categories ul.listing li {
+    background: #bedef2;
+    border-bottom: 1px solid white;
+    margin: 0;
+    list-style-type: none;
+}
+
+.categories ul.listing li:hover {
+    background: #97c9e9;
+}
+
+.categories ul.listing li.selected {
+    background: #666666;
+}
+
+.categories ul.listing li.last {
+    border-bottom: 0;
+}
+
+.categories ul.listing li a {
+    display: block;
+    color: #2c587b;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 0 10px 10px;
+}
+
+.categories ul.listing li.selected a {
+    color: #fff;
+}
+
+.copyright {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: #666666;
+    text-align: center;
+    font-size: 12px;
+}

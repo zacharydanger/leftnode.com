@@ -1,0 +1,34 @@
+---
+layout: leftnode
+title: Leftnode - The Trendline Blog - Software and Business Development
+---
+
+<section class="twelve columns">
+    <div class="entry primary">
+        <h2>
+            <a href="{{ site.posts[0].url }}">{{ site.posts[0].title }}</a>
+        </h2>
+
+        <div class="date-author">
+            <span class="date">{{ site.posts[0].date | date_to_string }}</span>
+            <span class="author">by {{ site.posts[0].author }}</span>
+        </div>
+
+        <div class="content">{{ site.posts[0].content }}</div>
+    </div>
+
+    {% for post in site.posts limit:21 %}
+        {% if 1 != forloop.index %}
+            <div class="entry">
+                <h2>
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                </h2>
+
+                <div class="date-author">
+                    <span class="date">{{ post.date | date_to_string }}</span>
+                    <span class="author">by {{ post.author }}</span>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</section>

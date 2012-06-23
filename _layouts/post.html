@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% include design.html %}
+    <title>{{ page.title }} - Leftnode - The Trendline Blog</title>
+</head>
+<body>
+    {% include header.html %}
+
+    <article>
+        <div class="container">
+            <section class="twelve columns">
+                <div class="entry primary">
+                    <h2>
+                        {{ page.title }}</a>
+                    </h2>
+
+                    <div class="date-author">
+                        <span class="date">{{ page.date | date_to_string }}</span>
+                        <span class="author">by {{ page.author }}</span>
+                    </div>
+
+                    <div class="content">{{ content }}</div>
+                </div>
+            </section>
+
+            {% include sidebar.html %}
+        </div>
+    </article>
+</body>
+</html>

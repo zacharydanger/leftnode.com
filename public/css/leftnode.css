@@ -51,16 +51,6 @@ article {
     padding-top: 40px;
 }
 
-
-
-
-
-
-
-
-
-
-
 header {
     background: url('images/trendline-logo-background.png') repeat-x;
     height: 75px;
@@ -106,17 +96,11 @@ header h1 a {
     .social-banner {
         display: none;
     }
+
+    #swiftype-search {
+        display: none;
+    }
 }
-
-
-
-
-
-
-
-
-
-
 
 .social-banner {
     position: fixed;
@@ -186,10 +170,14 @@ header h1 a {
 
 .entry .content {
     margin-top: 10px;
-    font-family: 'Georgia', helvetica, arial, sans-serif;
-    font-size: 16px;
+    font-family: georgia, helvetica, arial, sans-serif;
+    font-size: 14px;
     font-weight: normal;
     line-height: 1.5;
+}
+
+.entry .content code {
+    font-size: 13px;
 }
 
 .entry .content p {
@@ -208,8 +196,13 @@ header h1 a {
     border: 1px solid #fff;
     color: #FFFFFF;
     padding: 10px;
-    font-size: 12px;
     margin: 10px 0 10px 0;
+    line-height: 1.3;
+    overflow-x: auto;
+}
+
+.entry .content pre code {
+    font-size: 12px;
 }
 
 .entry .content pre em {
@@ -266,7 +259,6 @@ header h1 a {
 
 .email-form div.register-button {
     margin-top: 5px;
-    text-align: center;
 }
 
 .categories {
@@ -311,4 +303,8 @@ header h1 a {
     color: #666666;
     text-align: center;
     font-size: 12px;
+}
+
+form input.st-search-input {
+    width: 182px;
 }

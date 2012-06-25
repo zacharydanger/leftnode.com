@@ -19,6 +19,6 @@ set :deploy_to, '/var/www/vhosts/leftnode.com'
 
 namespace :deploy do
   task :build, :roles => :web do
-    run "cd #{latest_release} && jekyll"
+    run "cd #{latest_release} && jekyll && cp .htaccess _site/.htaccess"
   end
 end

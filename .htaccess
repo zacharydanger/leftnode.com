@@ -1,0 +1,5 @@
+RewriteEngine On
+Rewriterule /feed /feed.xml [R=301,L]
+Rewriterule /feed/ /feed.xml [R=301,L]
+
+ErrorDocument 404 /404 

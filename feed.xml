@@ -1,0 +1,30 @@
+---
+layout: nil
+---
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+    <title>Leftnode - The Trendline Blog - Software and Business Development</title>
+    <link href="http://leftnode.com/" />
+    <link type="application/atom+xml" rel="self" href="http://leftnode.com/feed.xml" />
+    <updated>{{ site.time | date_to_xmlschema }}</updated>
+    <id>http://leftnode.com/</id>
+    <author>
+        <name>Vic Cherubini</name>
+        <email>vmc@leftnode.com</email>
+    </author>
+
+    {% for post in site.posts %}
+        <entry>
+            <id>http://leftnode.com{{ post.id }}</id>
+            <link type="text/html" rel="alternate" href="http://leftnode.com/{{ post.url }}"/>
+            <title>{{ post.title }}</title>
+            <updated>{{ post.date | date_to_xmlschema }}</updated>
+            <author>
+                <name>Vic Cherubini</name>
+                <uri>http://leftnode.com/</uri>
+            </author>
+            <content type="html">{{ post.content | xml_escape }}</content>
+        </entry>
+    {% endfor %}
+</feed>

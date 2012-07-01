@@ -173,4 +173,9 @@ The `resourceSupports()` method takes a variable number of arguments. Each argum
 this resource can respond in one of those content types. You must supply a view for each content type that the resource can respond with. If you do not, the 510
 Not Extended status code is returned.
 
-The class also handles 406 Not Acceptable 
+The class also handles 406 Not Acceptable response if the client accepts a content type this resource can not support. 
+
+##### View Rendering
+The BrightmarchRestfulBundle also handles rendering the correct view based on the Accept header properly. Continuing the example above, if the client accepts
+only application/xml and a view.xml.twig view exists, then that view will be rendered and returned to the client with an application/xml Content-Type header.
+

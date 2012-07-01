@@ -36,7 +36,7 @@ automatically contain a status code so you do not have to memorize them. The cla
 * [401 HttpUnauthorizedException](http://httpstatus.es/401)
 * [404 HttpNotFoundException](http://httpstatus.es/404)
 * [405 HttpMethodNotAllowedException](http://httpstatus.es/405)
-* [406 HttpNotAcceptableException](http://httpstatus.es/400)
+* [406 HttpNotAcceptableException](http://httpstatus.es/406)
 * [409 HttpConflictException](http://httpstatus.es/409)
 * [510 HttpNotExtendedException](http://httpstatus.es/510) &#8224;
 
@@ -56,4 +56,121 @@ You can simply include one of these classes into your controller with the `use` 
         throw new HttpNotFoundException("The User with ID 1 could not be found.");
     }
 
-adadfasdfa
+#### `Entity` Class
+The `Entity` class included with this bundle provides a solid base class for which you can extend your entities off of. The bundle does not require you to extend
+your entities off of this class to build a RESTful API.
+
+The most useful method in the `Entity` class is the `hydrate()` method which lets you define what variables should be loaded from a request payload. It will
+automatically call the correct setter methods (should they exist) to set the properties.
+
+    /**
+     * @ORM\Entity
+     * @ORM\Table(name="task")
+     */
+    class Task extends Entity
+    {
+        /**
+         * @ORM\Id
+         * @ORM\Column(name="id", type="integer")
+         * @ORM\GeneratedValue(strategy="SEQUENCE")
+         * @ORM\SequenceGenerator(sequenceName="task_id_seq", initialValue=1, allocationSize=1)
+         */
+        public $id;
+
+        /**
+         * @ORM\Column(type="datetime")
+         */
+        public $created;
+        
+        /**
+         * @ORM\Column(type="datetime") 
+         */
+        public $updated;
+
+        /**
+         * @ORM\Column(type="integer")
+         */
+        public $status = 0;
+        
+        /**
+         * @ORM\Column(type="string")
+         * @Assert\NotBlank()
+         * @Assert\MaxLength(128)
+         */
+        public $name;
+
+        /**
+         * @ORM\Column(name="part_number", type="string")
+         * @Assert\NotBlank()
+         * @Assert\MaxLength(24)
+         */
+        public $partNumber;
+
+        /**
+         * @ORM\Column(name="short_description", type="string", nullable="true")
+         * @Assert\MaxLength(128)
+         */
+        public $shortDescription;
+
+        public function hydrate(array $parameters)
+        {
+            $this->fetch('name', $parameters)
+                ->fetch('part_number', $parameters)
+                ->fetch('short_description', $parameters);
+
+            return(true);
+        }
+
+        // Setters and getters
+    }
+
+You can then build a new entity object and hydrate it from variables in the request ensuring that you do not allow the request to overwrite data it should not.
+
+    public function createTaskAction()
+    {
+        $request = $this->getRequest();
+
+        // The task variable below would have task[name],
+        // task[part_number], task[short_description] fields.
+        $task = new Task;
+        $task->hydrate((array)$request->get('task'));
+
+        // ...
+    }
+
+Aside from that, the `Entity` class is very basic. Most developers end up writing their own base Doctrine Entity classes, and this bundle's class is a great
+starting point.
+
+
+#### `RestfulController` Class
+The crux of this bundle is the `RestfulController` class. This class extends Symfony's `Controller` class. The `RestfulController` class provides several key pieces
+of functionality to make writing a RESTful API in Symfony easy.
+
+
+##### Content Negotiation
+The biggest piece of functionality that this class provides is content negotiation. Content negotation is the concept in HTTP that a client can accept certain
+types of content and that the server can provide content in that type. This is primarily done through the Accept and Content-Type headers.
+
+When making a request to a server, a client will tell the server through the Accept header what content types it can accept in the response. For example, most
+browsers give an array of content types that they accept: text/html, application/xml, text/xhtml, text/plain, */*.
+
+Additionally, if a client is sending data to a server through a POST, PUT, or PATCH request, the client will specify the type of that content with the Content-Type
+header.
+
+The servers response will contain a Content-Type header with the actual content type of the response payload.
+
+The `RestfulController` class handles all of this for you automatically. When writing a class that extends `RestfulController`, each controller action method
+will indicate what types of content it can respond with.
+
+    public function createAction()
+    {
+        $this->resourceSupports('application/json', 'application/xml', 'text/html');
+
+        // ...
+    }
+
+The `resourceSupports()` method takes a variable number of arguments. Each argument should be a valid mime type string. This method tells the controller that
+this resource can respond in one of those content types. You must supply a view for each content type that the resource can respond with. If you do not, the 510
+Not Extended status code is returned.
+
+The class also handles 406 Not Acceptable 

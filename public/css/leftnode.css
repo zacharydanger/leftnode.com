@@ -18,17 +18,11 @@ a:hover {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: helvetica, arial, sans-serif;
+    font-weight: bold;
 }
 
 h2 {
-    font-size: 28px;
-    letter-spacing: -1px;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-h3 {
-    font-size: 24px;
+    font-size: 26px;
 }
 
 h2 a {
@@ -36,8 +30,16 @@ h2 a {
     text-decoration: none;
 }
 
+h3 {
+    font-size: 24px;
+}
+
 h4 {
     font-size: 18px;
+}
+
+h5 {
+    font-size: 16px;
 }
 
 ul { }
@@ -156,10 +158,6 @@ header h1 a {
     margin-bottom: 40px;
 }
 
-.entry h2 {
-    font-size: 24px;
-}
-
 .entry .date-author {
     font-size: 12px;
 }
@@ -175,10 +173,6 @@ header h1 a {
     font-weight: normal;
     line-height: 1.5;
     text-shadow: 0 1px 0 #fff;
-}
-
-.entry .content code {
-    
 }
 
 .entry .content p {

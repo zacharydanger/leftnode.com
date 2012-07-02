@@ -176,6 +176,132 @@ Not Extended status code is returned.
 The class also handles 406 Not Acceptable response if the client accepts a content type this resource can not support. 
 
 ##### View Rendering
-The BrightmarchRestfulBundle also handles rendering the correct view based on the Accept header properly. Continuing the example above, if the client accepts
+The BrightmarchRestfulBundle also handles rendering the correct view based on the Accept header. Continuing the example above, if the client accepts
 only application/xml and a view.xml.twig view exists, then that view will be rendered and returned to the client with an application/xml Content-Type header.
 
+Rendering the view and returning the Symfony `Response` object is done through the `renderResource()` method.
+
+    public function createAction()
+    {
+        $this->resourceSupports('application/json', 'application/xml', 'text/html');
+
+        // ...
+
+        return($this->renderResource('CompanyDemoBundle:Users:user', array('user' => $user)));
+    }
+
+The `renderResource()` method will automatically determine to use the user.json.twig, user.xml.twig, or user.html.twig view depending on the first content type
+the client accepts. The .twig extension will automatically be added as well. By default `renderResource()` responds with a 200 OK HTTP status code.
+
+There are two variations to the `renderResource()` method: `renderCreatedResource()` and `renderAcceptedResource()`. `renderCreatedResource()` will respond
+with a 201 Created HTTP status code, and `renderAcceptedResource()` will respond with a 202 Accepted HTTP status code.
+
+If you need to use a 2xx status code other than 200, 201, or 202, the last parameter of the `renderResource()` method lets you override that.
+
+    public function renderResource($view, array $parameters=array(), $statusCode=200);
+
+##### Rendering Exceptions
+The BrightmarchRestfulBundle also has the ability to render exceptions thrown by your controller actions. HTTP allows error responses to be rendered in any content
+type, even if the client can not accept it. If the client can only accept application/xml, the controller can still respond with application/json for an error
+response.
+
+This bundle always returns errors as application/json. The method `renderException()` is used to render an exception.
+
+An exception is rendered with the following template:
+
+    {
+        "http_code": 404,
+        "message": "The resource you are looking for can not be found."
+    }
+
+The `renderException()` method takes a single argument: the `Exception` object. If the object does not have a code associated with it or the code associated with it
+is outside of the range of standard HTTP codes, the default 500 Internal Server Error code will be used. Otherwise, the code associated with the exception will
+be used and that code will be used in the response.
+
+  
+##### Sample Application
+
+    namespace Company\RestfulApiBundle\Controller;
+
+    use Symfony\Component\HttpFoundation\Request;
+
+    use Company\RestfulApiBundle\Entity\User;
+
+    use Brightmarch\Bundle\RestfulBundle\Controller\RestfulController;
+    use Brightmarch\Bundle\RestfulBundle\Exceptions\HttpBadSyntaxException;
+    use Brightmarch\Bundle\RestfulBundle\Exceptions\HttpConflictException;
+    use Brightmarch\Bundle\RestfulBundle\Exceptions\HttpNotFoundException;
+
+    use \Exception;
+
+    class UsersController extends RestfulController
+    {
+
+        public function readAllAction()
+        {
+            try {
+                $this->resourceSupports('application/json'); 
+                
+                $users = $this->getEntityManager()
+                    ->getRepository('CompanyRestfulApiBundle:User')
+                    ->findAll();
+
+                return($this->renderResource('CompanyRestfulApiBundle:Users:users',
+                    array('users' => $users)));
+            } catch (Exception $e) {
+                return($this->renderException($e));
+            }
+        }
+
+        public function readByIdAction($id)
+        {
+            try {
+                $this->resourceSupports('application/json');
+                
+                $user = $this->getEntityManager()
+                    ->getRepository('CompanyRestfulApiBundle:User')
+                    ->findOneById((int)$id);
+                
+                if (!$user) {
+                    $message = sprintf("The User with ID %d can not be found.", (int)$id);
+                    throw new HttpNotFoundException($message);
+                }
+                
+                return($this->renderResource('CompanyRestfulApiBundle:Users:user',
+                    array('user' => $user)));
+            } catch (Exception $e) {
+                return($this->renderException($e));
+            }
+        }
+
+        public function createAction()
+        {
+            $request = $this->getRequest();
+            
+            try {
+                $this->resourceSupports('application/json');
+
+                $user = new User;
+                $user->hydrate((array)$request->get('user'))
+                    ->enable();
+
+                if (!$this->isResourceValid($user)) {
+                    $message = "The User object is invalid.";
+                    throw new HttpBadSyntaxException($message);
+                }
+                
+                $em = $this->getEntityManager();
+                $em->persist($user);
+                $em->flush();
+
+                $this->closeConnection();
+                
+                return($this->renderCreatedResource('CompanyRestfulApiBundle:Users:user',
+                    array('user' => $user)));
+            } catch (Exception $e) {
+                return($this->renderException($e));
+            }
+        }
+
+You can start using the BrightmarchRestfulBundle by [visiting its Github page](https://github.com/brightmarch/BrightmarchRestfulBundle). Installation is simple,
+and outlined on that page. I am using this bundle for all of my [new applications](/entry/modern-web-application-architecture.html), and it has worked out wonderfully.

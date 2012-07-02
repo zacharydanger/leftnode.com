@@ -138,12 +138,12 @@ You can then build a new entity object and hydrate it from variables in the requ
         // ...
     }
 
-Aside from that, the `Entity` class is very basic. Most developers end up writing their own base Doctrine Entity classes, and this bundle's class is a great
+Aside from that, the `Entity` class is very basic. Most developers end up writing their own base Doctrine Entity classes, and this bundles class is a great
 starting point.
 
 
 #### `RestfulController` Class
-The crux of this bundle is the `RestfulController` class. This class extends Symfony's `Controller` class. The `RestfulController` class provides several key pieces
+The crux of this bundle is the `RestfulController` class. This class extends Symfony2's `Controller` class. The `RestfulController` class provides several key pieces
 of functionality to make writing a RESTful API in Symfony easy.
 
 
@@ -152,7 +152,7 @@ The biggest piece of functionality that this class provides is content negotiati
 types of content and that the server can provide content in that type. This is primarily done through the Accept and Content-Type headers.
 
 When making a request to a server, a client will tell the server through the Accept header what content types it can accept in the response. For example, most
-browsers give an array of content types that they accept: text/html, application/xml, text/xhtml, text/plain, */*.
+browsers give an array of content types that they accept: text/html, application/xml, text/xhtml, text/plain, \*/\*.
 
 Additionally, if a client is sending data to a server through a POST, PUT, or PATCH request, the client will specify the type of that content with the Content-Type
 header.
@@ -171,13 +171,13 @@ will indicate what types of content it can respond with.
 
 The `resourceSupports()` method takes a variable number of arguments. Each argument should be a valid mime type string. This method tells the controller that
 this resource can respond in one of those content types. You must supply a view for each content type that the resource can respond with. If you do not, the 510
-Not Extended status code is returned.
+Not Extended status code is thrown.
 
 The class also handles 406 Not Acceptable response if the client accepts a content type this resource can not support. 
 
 ##### View Rendering
 The BrightmarchRestfulBundle also handles rendering the correct view based on the Accept header. Continuing the example above, if the client accepts
-only application/xml and a view.xml.twig view exists, then that view will be rendered and returned to the client with an application/xml Content-Type header.
+only application/xml and a view.xml.twig view exists, then that view will be rendered and returned to the client with a `Content-Type: application/xml` header.
 
 Rendering the view and returning the Symfony `Response` object is done through the `renderResource()` method.
 
@@ -191,7 +191,8 @@ Rendering the view and returning the Symfony `Response` object is done through t
     }
 
 The `renderResource()` method will automatically determine to use the user.json.twig, user.xml.twig, or user.html.twig view depending on the first content type
-the client accepts. The .twig extension will automatically be added as well. By default `renderResource()` responds with a 200 OK HTTP status code.
+the client accepts (you are not constrained to using these types only, of course). The .twig extension will automatically be added as well.
+By default `renderResource()` responds with a 200 OK HTTP status code.
 
 There are two variations to the `renderResource()` method: `renderCreatedResource()` and `renderAcceptedResource()`. `renderCreatedResource()` will respond
 with a 201 Created HTTP status code, and `renderAcceptedResource()` will respond with a 202 Accepted HTTP status code.
@@ -214,7 +215,7 @@ An exception is rendered with the following template:
         "message": "The resource you are looking for can not be found."
     }
 
-The `renderException()` method takes a single argument: the `Exception` object. If the object does not have a code associated with it or the code associated with it
+The `renderException()` method takes a single argument: an `Exception` object. If the object does not have a code associated with it or the code associated with it
 is outside of the range of standard HTTP codes, the default 500 Internal Server Error code will be used. Otherwise, the code associated with the exception will
 be used and that code will be used in the response.
 

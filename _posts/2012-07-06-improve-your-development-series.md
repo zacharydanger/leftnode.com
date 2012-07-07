@@ -7,10 +7,10 @@ author: Vic Cherubini
 ---
 
 While I have been developing software and being paid for it since 1999, I did not really start *developing software* until around 2003 or so. I was comfortable enough at that point to build large scale Internet applications.
-It has not been until recently (within the past three to four years) that I have really grown as a developer. I spend a lot of time writing about PHP and PHP developers have been given a bum rap lately.
+It has not been until recently (within the past three to four years) that I have really grown as a developer. I want to share that growth with you in a new series I am writing.
 
-Any competent PHP developer knows it is not a well designed language. Compared to Ruby, Python, Scala, Java, and many others, PHP is pretty low on the list of well designed languages. I think a lot of criticism comes from
-incompetent PHP developers doing things in it because it is the path of least reistence.
+I spend a lot of time writing about PHP and PHP developers have been given a bum rap lately. Any competent PHP developer knows it is not a well designed language. Compared to Ruby, Python, Scala, Java, and many others,
+PHP is pretty low on the list of well designed languages. I think a lot of criticism comes from incompetent PHP developers doing things in it because it is the path of least reistence.
 
 Be that as it may, there is no reason why PHP developers can not be competent developers in a bad ecosystem (admittedly, it has improved dramatically).
 
@@ -27,4 +27,4 @@ Some topics will cover:
 * Domain Specific APIs
 * Different types of testing
 
-My goal is to publish at least one lesson per week. If you are interested in a series like this, please take a moment to register for my email newsletter, [subscribe to my site](/feed.xml), or [follow me on Twitter](https://twitter.com/leftnode).
+My goal is to publish at least one lesson per week. If you are interested in a series like this, please take a moment to register for my email newsletter or [subscribe to my site](/feed.xml).

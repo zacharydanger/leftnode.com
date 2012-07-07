@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Improve Your Development Series
-permalink: /entry/improve-your-development-series.html
+title: Effective Developer Tactics
+permalink: /entry/effective-developer-tactics.html
 comments: false
 author: Vic Cherubini
 ---

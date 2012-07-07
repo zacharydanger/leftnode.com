@@ -14,7 +14,7 @@ PHP is pretty low on the list of well designed languages. I think a lot of criti
 
 Be that as it may, there is no reason why PHP developers can not be competent developers in a bad ecosystem (admittedly, it has improved dramatically).
 
-I am going to start a series called *Development Improvement Tactics* on this site. The series will not be aimed at any specific type of developer, but rather will give you key tips on ways you can improve your code without much effort.
+I am going to start a series called *Effective Developer Tactics* on this site. The series will not be aimed at any specific type of developer, but rather will give you key tips on ways you can improve your code without much effort.
 My goal is to keep the series as language agnostic as possible. Examples will mostly be in PHP (which is a breeze to read if you are completely unfamiliar with the language), but I will do my best to inject examples in other languages
 (it will provide me a good opportunity to toy around with them as well).
 
